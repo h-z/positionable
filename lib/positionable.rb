@@ -40,6 +40,5 @@ module Positionable
       self.position= new_position
       save
     end
-
   end
-e
+end
