@@ -22,6 +22,7 @@ Jeweler::Tasks.new do |gem|
   gem.email = "hz@muszaki.info"
   gem.authors = ["HEGEDUS Zoltan"]
   # dependencies defined in Gemfile
+  gem.add_dependency "activerecord", ">= 0"
 end
 Jeweler::RubygemsDotOrgTasks.new
 
