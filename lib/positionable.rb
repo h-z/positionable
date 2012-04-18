@@ -31,25 +31,14 @@ module Positionable
             range = if new_position > positionable_position then positionable_position..new_position else new_position..positionable_position end
 
             siblings.where(:position => range).update_all(positionable_move_siblings(positionable_position > new_position))
-"""
-            siblings.where(:position => range).each do |movable|
-                begin
-                    if positionable_position > new_position
-                        movable.position = movable.send(position_options[:position_column]) + 1
-                    else
-                        movable.position = movable.send(position_options[:position_column]) - 1
-                    end
-                rescue
-                end
-                movable.save
-            end
-            """
+
             self.position= new_position
             save
         end
 
 private
-        def positionable_move_siblings direction
+        # @param [boolean] direction
+        def positionable_move_siblings(direction)
             s = position_options[:position_column].to_s + ' = ' + position_options[:position_column] 
             if direction
                 s += ' + 1'
