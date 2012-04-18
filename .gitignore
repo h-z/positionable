@@ -4,7 +4,7 @@ coverage.data
 Gemfile.lock
 # rdoc generated
 rdoc
-
+.idea
 # yard generated
 doc
 .yardoc
