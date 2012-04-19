@@ -39,7 +39,7 @@ module Positionable
 private
         # @param [boolean] direction
         def positionable_move_siblings(direction)
-            s = position_options[:position_column].to_s + ' = ' + position_options[:position_column] 
+            s = position_options[:position_column].to_s + ' = ' + position_options[:position_column].to_s
             if direction
                 s += ' + 1'
             else
