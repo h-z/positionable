@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["HEGEDUS Zoltan"]
-  s.date = %q{2012-04-18}
-  s.description = %q{Help active record to position gem}
+  s.date = %q{2012-04-19}
+  s.description = %q{Help ActiveRecord to position gem}
   s.email = %q{hz@muszaki.info}
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "lib/positionable.rb",
+    "positionable.gemspec",
     "spec/positionable_spec.rb",
     "spec/spec_helper.rb"
   ]
@@ -32,7 +33,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.7.2}
-  s.summary = %q{Help active record to position gem}
+  s.summary = %q{Positioning gem for positioning ActiveRecord models}
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
