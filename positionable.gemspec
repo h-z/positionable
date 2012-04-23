@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["HEGEDUS Zoltan"]
-  s.date = %q{2012-04-19}
+  s.date = %q{2012-04-23}
   s.description = %q{Help ActiveRecord to position gem}
   s.email = %q{hz@muszaki.info}
   s.extra_rdoc_files = [
@@ -27,7 +27,9 @@ Gem::Specification.new do |s|
     "lib/positionable.rb",
     "positionable.gemspec",
     "spec/positionable_spec.rb",
-    "spec/spec_helper.rb"
+    "spec/spec_helper.rb",
+    "test/helper.rb",
+    "test/test_positionable.rb"
   ]
   s.homepage = %q{http://github.com/h-z/positionable}
   s.licenses = ["MIT"]
