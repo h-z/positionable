@@ -135,7 +135,7 @@ class TestPositionable2 < Test::Unit::TestCase
 
         end
   
-        should " positions at start2" do
+        should " positions at start3" do
             @child = @parent.children.last
             assert_equal [1, 2, 3, 4, 5, 6, 7, 8], @parent.children.collect {|c| c.pos}
             @child.reposition(20)
