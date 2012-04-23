@@ -38,7 +38,7 @@ module Positionable
             range = if new_position > positionable_position then positionable_position..new_position else new_position..positionable_position end
 
             siblings.where(position_options[:position_column] => range).update_all(positionable_move_siblings(positionable_position > new_position))
-
+            self.reload
             self.send(position_options[:position_column].to_s + '=' , new_position)
             save
             self

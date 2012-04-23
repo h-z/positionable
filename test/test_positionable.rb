@@ -120,27 +120,31 @@ class TestPositionable2 < Test::Unit::TestCase
             teardown_db
         end
 
-        should " positions at start" do
+        should "position to 14" do
             assert_equal [1, 2, 3, 4, 5, 6, 7, 8], @parent.children.collect {|c| c.pos}
             @child.reposition(14)
             assert_equal [1, 2, 14, 3, 4, 5, 6, 7], @parent.children.collect {|c| c.pos}
-
         end
 
-        should " positions at start2" do
+        should "position to 20" do
             @child = @parent.children.first
             assert_equal [1, 2, 3, 4, 5, 6, 7, 8], @parent.children.collect {|c| c.pos}
             @child.reposition(20)
             assert_equal [20, 1, 2, 3, 4, 5, 6, 7], @parent.children.collect {|c| c.pos}
-
         end
   
-        should " positions at start3" do
+        should "positions to 20 from last" do
             @child = @parent.children.last
             assert_equal [1, 2, 3, 4, 5, 6, 7, 8], @parent.children.collect {|c| c.pos}
             @child.reposition(20)
             assert_equal [1, 2, 3, 4, 5, 6, 7, 20], @parent.children.collect {|c| c.pos}
-
+        end
+  
+        should "remain at the same position" do
+            @child = @parent.children.last
+            assert_equal [1, 2, 3, 4, 5, 6, 7, 8], @parent.children.collect {|c| c.pos}
+            @child.reposition(8)
+            assert_equal [1, 2, 3, 4, 5, 6, 7, 8], @parent.children.collect {|c| c.pos}
         end
     end
 end
