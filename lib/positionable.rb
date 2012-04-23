@@ -19,21 +19,29 @@ module Positionable
 
     module InstanceMethods
         def siblings
-            if position_options[:parent].nil? and position_options[:siblings].nil?
-                return nil
+            if !position_options[:parent].nil?
+                parent = self.send(position_options[:parent])
+                if !parent.nil? and parent.respond_to?(position_options[:siblings])
+                    return parent.send(position_options[:siblings])
+                end
+            else
+                if !position_options[:siblings].nil? and self.respond_to?(position_options[:siblings])
+                    return self.send(position_options[:siblings])
+                end
             end
-            self.send(position_options[:parent]).send(position_options[:siblings])
-        end
+            nil
+       end
 
         # @param [Integer] new_position
         def reposition(new_position)
             return true if [position_options[:position_column], nil].include? new_position
             range = if new_position > positionable_position then positionable_position..new_position else new_position..positionable_position end
 
-            siblings.where(:position => range).update_all(positionable_move_siblings(positionable_position > new_position))
+            siblings.where(position_options[:position_column] => range).update_all(positionable_move_siblings(positionable_position > new_position))
 
-            self.position= new_position
+            self.send(position_options[:position_column].to_s + '=' , new_position)
             save
+            self
         end
 
 private

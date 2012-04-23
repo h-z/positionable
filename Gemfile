@@ -8,6 +8,12 @@ source "http://rubygems.org"
 
 gem "activerecord"
 
+
+group :test do
+    gem "shoulda"
+    gem "sqlite3"
+end
+
 group :development do
   gem "rspec", "~> 2.8.0"
   gem "rdoc", "~> 3.12"
