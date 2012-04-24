@@ -132,19 +132,28 @@ class TestPositionable2 < Test::Unit::TestCase
             @child.reposition(20)
             assert_equal [20, 1, 2, 3, 4, 5, 6, 7], @parent.children.collect {|c| c.pos}
         end
-  
+
         should "positions to 20 from last" do
             @child = @parent.children.last
             assert_equal [1, 2, 3, 4, 5, 6, 7, 8], @parent.children.collect {|c| c.pos}
             @child.reposition(20)
             assert_equal [1, 2, 3, 4, 5, 6, 7, 20], @parent.children.collect {|c| c.pos}
         end
-  
+
         should "remain at the same position" do
             @child = @parent.children.last
             assert_equal [1, 2, 3, 4, 5, 6, 7, 8], @parent.children.collect {|c| c.pos}
-            @child.reposition(8)
+            @child.reposition(@child.pos)
             assert_equal [1, 2, 3, 4, 5, 6, 7, 8], @parent.children.collect {|c| c.pos}
+        end
+
+        should "remain at the same position after reposition again" do
+            assert_equal [1, 2, 3, 4, 5, 6, 7, 8], @parent.children.collect {|c| c.pos}
+            @child.reposition(20)
+            assert_equal [1, 2, 20, 3, 4, 5, 6, 7], @parent.children.collect {|c| c.pos}
+            @child.reposition(3)
+            assert_equal [1, 2, 3, 4, 5, 6, 7, 8], @parent.children.collect {|c| c.pos}
+
         end
     end
 end
